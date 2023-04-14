@@ -6,6 +6,7 @@ function App() {
   const [state, setState] = useState({ count: 4, theme: "blue" });
   const count = state.count;
   const theme = state.theme;
+  const [resourceType, setResourceType] = useState("posts");
 
   const decrementCount = () => {
     if (count > 1)
@@ -22,10 +23,20 @@ function App() {
 
   return (
     <div className="App">
-      <span style={{ background: theme, color: "white", padding: '0 20px' }}>THEME</span><br></br>
+      <span style={{ background: theme, color: "white", padding: "0 20px" }}>
+        THEME
+      </span>
+      <br></br>
       <button onClick={decrementCount}>-</button>
       <span style={{ padding: "0 20px", color: theme }}>{count}</span>
       <button onClick={incrementCount}>+</button>
+      <hr />
+      <div>
+        <button onClick={() => setResourceType('posts')}>Posts</button>
+        <button onClick={() => setResourceType('users')}>Users</button>
+        <button onClick={() => setResourceType('comments')}>Comments</button>
+      </div>
+      <h1>{resourceType}</h1>
     </div>
   );
 }
