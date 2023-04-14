@@ -1,7 +1,8 @@
 import "./App.css";
 import React, { useMemo, useState, useRef, useEffect } from "react";
-import ClassContextComponent from "./components/ClassContextComponent";
+// import ClassContextComponent from "./components/ClassContextComponent";
 import FunctionContextComponent from "./components/FunctionContextComponent";
+import { ThemeProvider } from "./ThemeContext";
 
 function AppOne() {
   const [number, setNumber] = useState(20);
@@ -61,22 +62,16 @@ function AppTwo() {
   );
 }
 
-export const ThemeContext = React.createContext()
+// export const ThemeContext = React.createContext()
 
 export default function App() {
-  const [darkTheme, setDarkTheme] = useState(true);
-
-  function toggleTheme() {
-    setDarkTheme(prevDarkTheme => !prevDarkTheme)
-  }
 
   return (
     <>
-      <ThemeContext.Provider value={darkTheme}>
-        <button onClick={toggleTheme}>Toggle Theme</button>
+      <ThemeProvider>
         <FunctionContextComponent />
-        <ClassContextComponent />
-      </ThemeContext.Provider>
+        {/* <ClassContextComponent /> */}
+      </ThemeProvider>
     </>
   )
 }

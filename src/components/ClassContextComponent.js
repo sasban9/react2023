@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { ThemeContext } from "../App";
+// import { ThemeContext } from "../App";
+import {useTheme, useThemeUpdate} from "../ThemeContext";
 
 export default class ClassContextComponent extends Component {
     themeStyles(dark) {
@@ -13,11 +14,11 @@ export default class ClassContextComponent extends Component {
 
     render() {
         return (
-            <ThemeContext.Consumer>
+            <>
                 {darkTheme => {
                     return <div style={this.themeStyles(darkTheme)}>Class Theme</div>
                 }}
-            </ThemeContext.Consumer>
+            </>
         )
     }
 }
