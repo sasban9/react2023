@@ -7,6 +7,15 @@ export default function App() {
   const theme = state.theme;
   const [resourceType, setResourceType] = useState("posts");
   const [items, setItems] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     // console.log('render '+resourceType);
@@ -29,7 +38,7 @@ export default function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{ background: "#" + windowWidth }}>
       <span style={{ background: theme, color: "white", padding: "0 20px" }}>
         THEME
       </span>
@@ -48,11 +57,18 @@ export default function App() {
         return (
           <div key={item.id}>
             <h2>{item.title}</h2>
-            {item.email && <h4>
-              {item.name}{" "}
-              <span style={{ color: "blue" }}>&lt;{item.email}&gt;</span> 
-              {item.postId && <>commented on <span style={{color:'red'}}>post id {item.postId}</span></>}
-            </h4>}
+            {item.email && (
+              <h4>
+                {item.name}{" "}
+                <span style={{ color: "blue" }}>&lt;{item.email}&gt;</span>
+                {item.postId && (
+                  <>
+                    commented on{" "}
+                    <span style={{ color: "red" }}>post id {item.postId}</span>
+                  </>
+                )}
+              </h4>
+            )}
             <p>{item.body}</p>
           </div>
         );
