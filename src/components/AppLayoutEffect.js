@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <>
-    <p>useLayoutEffect Demo</p>
+    <p>useLayoutEffect Demo - Nov 2021</p>
       <button ref={button} onClick={() => setShow((prev) => !prev)}>
         Click Here
       </button>
