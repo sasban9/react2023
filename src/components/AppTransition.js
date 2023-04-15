@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <>
-      <p>useTransition Demo - May 2022</p>
+      <p style={{background:"khaki"}}>useTransition Demo - May 2022</p>
       <input type="text" value={input} onChange={handleChange} />
       {isPending
         ? "Loading..."
