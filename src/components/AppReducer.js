@@ -47,12 +47,13 @@ export default function App() {
     <>
       <h2>useReducer Demo</h2>
       <form onSubmit={handleSubmit}>
+      enter todo and submit<br/>
         <input
           placeholder="Make a toast"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-        /> enter todo and submit
+        />
       </form>
       <hr />
       <p>List of todos appear here</p>

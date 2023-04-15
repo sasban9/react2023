@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <>
-    <p>App showing useContext</p>
+    <p>useContext Demo</p>
       <ThemeProvider>
         <FunctionContextComponent />
         {/* <ClassContextComponent /> */}

@@ -25,13 +25,14 @@ export default function App() {
     //   style={{ background: "#" + windowWidth + "4", paddingBottom: 40 }}
     >
         <p>useState demo</p>
-      <span style={{ background: theme, color: "white", padding: "0 20px" }}>
-        THEME
-      </span>
+      <div style={{ background: theme, color: "white", padding: "0 20px" }}>
+        Temperature
       <br></br>
-      <button onClick={decrementCount}>-</button>
-      <span style={{ padding: "0 20px", color: theme }}>{count}</span>
-      <button onClick={incrementCount}>+</button>
+      <button onClick={decrementCount}> COLDER </button>
+      <span style={{ padding: "0 20px" }}>{count} &deg;C</span>
+      <button onClick={incrementCount}> WARMER</button>
+      
+      </div>
     </div>
   );
 }

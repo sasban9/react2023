@@ -20,7 +20,7 @@ export default function App() {
   
     return (
       <>
-      <p>App showing useMemo</p>
+      <p>useMemo demo</p>
         <input
           type="number"
           value={number}
