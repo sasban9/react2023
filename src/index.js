@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './components/AppCallback';
+import App from './components/AppCustomHook';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <footer>Change import App for various demo</footer>
+    <footer>Change import App for various demo. Jul 2020</footer>
   </React.StrictMode>
 );
 
