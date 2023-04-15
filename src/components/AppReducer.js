@@ -1,4 +1,4 @@
-import "../App.css";
+import "./App.css";
 import { useReducer, useState } from "react";
 import Todo from "./Todo";
 
@@ -14,7 +14,6 @@ function reducer(todos, action) {
   switch (action.type) {
     case ACTIONS.ADD_TODO:
       return [...todos, newTodo(action.payload.name)];
-      break;
     case ACTIONS.TOGGLE_TODO:
       return todos.map((todo) => {
         if (todo.id === action.payload.id) {
@@ -22,21 +21,10 @@ function reducer(todos, action) {
         }
         return todo;
       });
-      break;
-    case ACTIONS.TOGGLE_TODO:
-      return todos.map((todo) => {
-        if (todo.id === action.payload.id) {
-          return { ...todo, complete: !todo.complete };
-        }
-        return todo;
-      });
-      break;
     case ACTIONS.DELETE_TODO:
       return todos.filter(todo => todo.id !== action.payload.id)
-      break;
     default:
       return todos;
-      break;
   }
 }
 
@@ -57,14 +45,17 @@ export default function App() {
 
   return (
     <>
+      <h2>useReducer Demo</h2>
       <form onSubmit={handleSubmit}>
         <input
+          placeholder="Make a toast"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-        />
+        /> enter todo and submit
       </form>
       <hr />
+      <p>List of todos appear here</p>
       <table>
         <thead>
           <tr style={{ background: "#666", color: "#fff" }}>

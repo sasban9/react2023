@@ -1,24 +1,27 @@
-import { ACTIONS } from "./AppThree";
+import { ACTIONS } from "./AppReducer";
 
 export default function Todo({ todo, dispatch }) {
   return (
     <tr>
       <td>
-        <button
+        <input type="checkbox"
           onClick={() =>
             dispatch({ type: ACTIONS.TOGGLE_TODO, payload: { id: todo.id } })
           }
-        >
-          Toggle
-        </button>
-        <button
+        />
+       
+      </td>
+      {/* <td>
+                
+      <span
+            style={{cursor:'pointer', color:'red'}}
           onClick={() =>
             dispatch({ type: ACTIONS.DELETE_TODO, payload: { id: todo.id } })
           }
         >
-          Delete
-        </button>
-      </td>
+          X
+        </span>
+      </td> */}
       <td>
         <span
           style={{
@@ -30,6 +33,7 @@ export default function Todo({ todo, dispatch }) {
           {todo.name}
         </span>
       </td>
+      
     </tr>
   );
 }

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-export default function AppTwo() {
+export default function App() {
   const [name, setName] = useState("");
   const inputRef = useRef();
 
@@ -10,7 +10,7 @@ export default function AppTwo() {
 
   return (
     <>
-        <p>App Two</p>
+    <p>useRef demo</p>
       <input
         ref={inputRef}
         value={name}

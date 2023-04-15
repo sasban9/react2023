@@ -1,10 +1,7 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 
-export default function AppOne() {
-  const [state, setState] = useState({ count: 4, theme: "blue" });
-  const count = state.count;
-  const theme = state.theme;
+export default function App() {
   const [resourceType, setResourceType] = useState("users");
   const [items, setItems] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -24,32 +21,11 @@ export default function AppOne() {
       .then((json) => setItems(json));
   }, [resourceType]);
 
-  const decrementCount = () => {
-    if (count > 1)
-      setState((prevState) => {
-        return { ...prevState, count: prevState.count - 1, theme: "blue" };
-      });
-  };
-
-  const incrementCount = () => {
-    setState((prevState) => {
-      return { ...prevState, count: prevState.count + 1, theme: "red" };
-    });
-  };
-
   return (
     <div
       className="App"
       style={{ background: "#" + windowWidth + "4", paddingBottom: 40 }}
     >
-      <span style={{ background: theme, color: "white", padding: "0 20px" }}>
-        THEME
-      </span>
-      <br></br>
-      <button onClick={decrementCount}>-</button>
-      <span style={{ padding: "0 20px", color: theme }}>{count}</span>
-      <button onClick={incrementCount}>+</button>
-      <hr />
       <div>
         <button onClick={() => setResourceType("posts")}>Posts</button>
         <button onClick={() => setResourceType("users")}>Users</button>
@@ -79,5 +55,3 @@ export default function AppOne() {
     </div>
   );
 }
-
-// export default App;

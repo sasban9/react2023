@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-export default function AppOne() {
+export default function App() {
     const [number, setNumber] = useState(20);
     const [dark, setDark] = useState(false);
     const doubleNumber = useMemo(() => {
@@ -20,7 +20,7 @@ export default function AppOne() {
   
     return (
       <>
-        <p>App One</p>
+      <p>App showing useMemo</p>
         <input
           type="number"
           value={number}
