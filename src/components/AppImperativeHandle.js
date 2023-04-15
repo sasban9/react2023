@@ -5,7 +5,7 @@ import React, {
   useState,
 } from "react";
 
-const CustomInput = React.forwardRef(({ ...props }, ref) => {
+const CustomInput = React.forwardRef(({ style, ...props }, ref) => {
   //   useImperativeHandle(
   //     ref,
   //     () => {
@@ -15,7 +15,7 @@ const CustomInput = React.forwardRef(({ ...props }, ref) => {
   //   );
   return (
     <input
-        // ref={ref}
+        ref={ref}
       {...props}
       style={{
         border: "none",
