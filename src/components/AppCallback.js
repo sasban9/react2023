@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function List({ getItems }) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    setItems(getItems());
+    setItems(getItems(1));
     console.log("Updating Items");
   }, [getItems]);
 
@@ -15,19 +15,27 @@ export default function App() {
   const [number, setNumber] = useState(1);
   const [dark, setDark] = useState(false);
 
-  const getItems = () => {
-    return [number, number + 1, number + 2];
-  };
+  const getItems = useCallback(
+    (incrementor) => {
+      return [
+        number + incrementor,
+        number + 1 + incrementor,
+        number + incrementor + 2,
+      ];
+    },
+    [number]
+  );
 
   const theme = {
-    backgroundColor: dark ? "#333" : "tomato",
-    color: !dark ? "#333" : "tomato",
+    backgroundColor: dark ? "#333" : "khaki",
+    color: !dark ? "#333" : "khaki",
     padding: 10,
   };
 
   return (
     <>
-      <p>useCallback demo</p>
+      <p>useCallback Demo</p>
+      <p>useCallback returns a function while useMemo returns a value</p>
       <div style={theme}>
         <input
           type="number"
